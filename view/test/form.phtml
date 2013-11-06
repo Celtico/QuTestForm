@@ -1,0 +1,22 @@
+<?php
+
+    $form = $this->form;
+    $form->prepare();
+    echo $this->form()->openTag($form) . PHP_EOL;
+        foreach ($form as $FieldSets)
+        {
+            echo   $FieldSets->getLabel() . PHP_EOL ;
+            echo   $this->formElement($FieldSets) . PHP_EOL .'<br>';
+            echo   $this->formElementErrors($FieldSets) . PHP_EOL ;
+
+            foreach ($FieldSets as $Element)
+            {
+                echo   $Element->getLabel() . PHP_EOL ;
+                echo   $this->formElement($Element) . PHP_EOL .'<br>';
+                echo   $this->formElementErrors($Element) . PHP_EOL ;
+             }
+        }
+?>
+<input type="submit">
+<?php  echo $this->form()->closeTag($form) . PHP_EOL ?>
+
