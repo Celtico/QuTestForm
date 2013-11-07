@@ -14,15 +14,16 @@ class TestFormController extends AbstractActionController
 {
 
     public function indexAction()
-    {
+    { 
+        $valid = '';
         $form  =  new TestFrom();
         if($this->request->isPost())
         {
             $post = $this->request->getPost();
             $form->setData($post);
-            $form->isValid();
+            $valid = $form->isValid();
         }
-        $model =   new ViewModel(array('form'=>$form));
+        $model =   new ViewModel(array('form'=>$form,'valid'=>$valid));
         return  $model->setTemplate('test/form');
     }
 }
