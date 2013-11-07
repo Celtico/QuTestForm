@@ -219,6 +219,7 @@ class TestFrom extends Form
 
         // Submit
         $form->add( array(
+            'type' => 'Zend\Form\Element\Submit',
             'name' => 'submit',
             'attributes' => array(
                 'value' => 'Submit',
